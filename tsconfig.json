@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "inlineSourceMap": false,
+    "importHelpers": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "rootDir": "./",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["dist", "node_modules"]
+}

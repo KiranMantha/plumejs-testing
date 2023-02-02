@@ -10,19 +10,17 @@ export interface Fixture<T> {
 export class TestBed {
   static async MockComponent<T>(
     target: ThisType<T>,
-    mockDependencies?: { provider: ConstructorType<any>; useValue: any }[]
+    mockDependencies: Array<{ provider: ConstructorType<any>; useValue: any }> = []
   ): Promise<Fixture<T>> {
-    if (mockDependencies) {
-      for (const { provider, useValue } of mockDependencies) {
-        TestBed.MockService(provider, useValue);
-      }
+    for (const { provider, useValue } of mockDependencies) {
+      TestBed.MockService(provider, useValue);
     }
     const appRoot: any = await _waitForComponentToRender((target as any).prototype.selector);
     return { componentInstance: appRoot.getInstance(), element: appRoot.shadowRoot };
   }
 
   static MockService(klass: ConstructorType<any>, mockedInstance: any) {
-    //Injector.removeService(klass);
+    Injector.removeService(klass);
     return InjectionToken(klass, mockedInstance);
   }
 
