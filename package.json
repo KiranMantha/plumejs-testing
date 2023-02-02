@@ -1,0 +1,26 @@
+{
+  "name": "@plumejs/testing",
+  "version": "3.0.0",
+  "description": "a scoped package of plumejs with all testing utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiranMantha/plumejs-testing.git"
+  },
+  "keywords": [
+    "plumejs",
+    "unit testing"
+  ],
+  "author": "KiranMantha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KiranMantha/plumejs-testing/issues"
+  },
+  "homepage": "https://github.com/KiranMantha/plumejs-testing#readme",
+  "dependencies": {
+    "@plumejs/core": "^3.3.1"
+  }
+}
