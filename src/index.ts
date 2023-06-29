@@ -2,9 +2,25 @@ import { Injector, InjectionToken } from '@plumejs/core';
 
 type ConstructorType<T extends { new (...args: any[]): T }> = T;
 
+async function _waitForComponentToRender(tag: string) {
+  const ele = document.createElement(tag);
+  document.body.appendChild(ele);
+  return new Promise((resolve) => {
+    function requestComponent() {
+      const element = document.querySelector(tag);
+      if (element) {
+        resolve(element);
+      } else {
+        window.requestAnimationFrame(requestComponent);
+      }
+    }
+    requestComponent();
+  });
+}
+
 export interface Fixture<T> {
   componentInstance: T;
-  element: ShadowRoot;
+  element: HTMLElement;
 }
 
 export class TestBed {
@@ -25,22 +41,10 @@ export class TestBed {
   }
 
   static RemoveComponent<T>(fixture: Fixture<T>) {
-    document.body.removeChild(fixture.element.host);
+    document.body.removeChild((fixture.element as unknown as ShadowRoot).host);
   }
 }
 
-async function _waitForComponentToRender(tag: string) {
-  const ele = document.createElement(tag);
-  document.body.appendChild(ele);
-  return new Promise((resolve) => {
-    function requestComponent() {
-      const element = document.querySelector(tag);
-      if (element) {
-        resolve(element);
-      } else {
-        window.requestAnimationFrame(requestComponent);
-      }
-    }
-    requestComponent();
-  });
+export function flushMicroTasks(): () => Promise<void> {
+  return () => Promise.resolve();
 }

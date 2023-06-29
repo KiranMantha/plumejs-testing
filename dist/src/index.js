@@ -1,4 +1,20 @@
 import { Injector, InjectionToken } from '@plumejs/core';
+async function _waitForComponentToRender(tag) {
+    const ele = document.createElement(tag);
+    document.body.appendChild(ele);
+    return new Promise((resolve) => {
+        function requestComponent() {
+            const element = document.querySelector(tag);
+            if (element) {
+                resolve(element);
+            }
+            else {
+                window.requestAnimationFrame(requestComponent);
+            }
+        }
+        requestComponent();
+    });
+}
 export class TestBed {
     static async MockComponent(target, mockDependencies = []) {
         for (const { provider, useValue } of mockDependencies) {
@@ -15,19 +31,6 @@ export class TestBed {
         document.body.removeChild(fixture.element.host);
     }
 }
-async function _waitForComponentToRender(tag) {
-    const ele = document.createElement(tag);
-    document.body.appendChild(ele);
-    return new Promise((resolve) => {
-        function requestComponent() {
-            const element = document.querySelector(tag);
-            if (element) {
-                resolve(element);
-            }
-            else {
-                window.requestAnimationFrame(requestComponent);
-            }
-        }
-        requestComponent();
-    });
+export function flushMicroTasks() {
+    return () => Promise.resolve();
 }
