@@ -1,0 +1,43 @@
+{
+  "name": "@plumejs/testing",
+  "version": "3.0.0",
+  "description": "a scoped package of plumejs with all testing utilities",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "eslint:init": "eslint --init",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiranMantha/plumejs-testing.git"
+  },
+  "keywords": [
+    "plumejs",
+    "unit testing"
+  ],
+  "author": "KiranMantha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KiranMantha/plumejs-testing/issues"
+  },
+  "homepage": "https://github.com/KiranMantha/plumejs-testing#readme",
+  "dependencies": {
+    "@plumejs/core": "^4.0.1",
+    "@testing-library/dom": "^9.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "rimraf": "^5.0.1"
+  }
+}
