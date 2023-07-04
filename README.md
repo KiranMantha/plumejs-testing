@@ -7,8 +7,12 @@
 
 [![Dependencies badge](https://img.shields.io/badge/dependencies-%40plumejs%2Fcore-blue)](https://GitHub.com/KiranMantha/plumejs) 
 [![Dependencies badge](https://img.shields.io/badge/dependencies-@testing--library/dom-blue)](https://github.com/testing-library/dom-testing-library)
+[![Dependencies badge](https://img.shields.io/badge/dependencies-@testing--library/jest--dom-blue)](https://github.com/testing-library/jest-dom)
 [![Dependencies badge](https://img.shields.io/badge/dependencies-jsdom-blue)](https://github.com/jsdom/jsdom)
+[![Dependencies badge](https://img.shields.io/badge/dependencies-vitest-blue)](https://vitest.dev/)
+[![Dependencies badge](https://img.shields.io/badge/dependencies-@vitest/coverage--v8-blue)](https://vitest.dev/guide/coverage.html)
 [![Dependencies badge](https://img.shields.io/badge/dependencies-shadow--dom--testing--library-blue)](https://github.com/KonnorRogers/shadow-dom-testing-library)
+
 
 A scoped package of plumejs with all testing utilities
 
