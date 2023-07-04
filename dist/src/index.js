@@ -34,5 +34,5 @@ export class TestBed {
 export function flushMicroTasks() {
     return () => Promise.resolve();
 }
-export { waitFor } from '@testing-library/dom';
-export { screen } from 'shadow-dom-testing-library';
+export { waitFor, fireEvent } from '@testing-library/dom';
+export { screen, within, debug } from 'shadow-dom-testing-library';

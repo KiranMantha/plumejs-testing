@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/KiranMantha/plumejs-testing#readme",
   "dependencies": {
-    "@plumejs/core": "^4.0.1",
+    "@plumejs/core": "^4.0.2",
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@vitest/coverage-v8": "^0.32.4",
