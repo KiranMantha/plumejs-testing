@@ -1,7 +1,4 @@
 import { Injector, InjectionToken } from '@plumejs/core';
-import { queryHelpers } from '@testing-library/dom';
-
-const DATA_TESTID = 'data-testid';
 
 type ConstructorType<T extends { new (...args: any[]): T }> = T;
 
@@ -19,24 +16,6 @@ async function _waitForComponentToRender(tag: string) {
     }
     requestComponent();
   });
-}
-
-const queryAllByTestId = queryHelpers.queryAllByAttribute.bind(null, DATA_TESTID);
-
-export function getAllByTestId(container: HTMLElement, id: string): HTMLElement[] {
-  const elements = queryAllByTestId(container, id);
-  if (!elements.length) {
-    throw queryHelpers.getElementError(`Unable to find an element by: [${DATA_TESTID}="${id}"]`, container);
-  }
-  return elements;
-}
-
-export function getByTestId(container: HTMLElement, id: string): HTMLElement {
-  const elements = getAllByTestId(container, id);
-  if (elements.length > 1) {
-    throw queryHelpers.getElementError(`Found multiple elements with the [${DATA_TESTID}="${id}"]`, container);
-  }
-  return elements[0];
 }
 
 export interface Fixture<T> {
@@ -70,4 +49,5 @@ export function flushMicroTasks(): () => Promise<void> {
   return () => Promise.resolve();
 }
 
-export * from '@testing-library/dom';
+export { waitFor } from '@testing-library/dom';
+export { screen } from 'shadow-dom-testing-library';
