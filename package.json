@@ -1,6 +1,6 @@
 {
   "name": "@plumejs/testing",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "a scoped package of plumejs with all testing utilities",
   "files": [
     "dist/**/*"
