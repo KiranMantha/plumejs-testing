@@ -34,10 +34,12 @@
   "homepage": "https://github.com/KiranMantha/plumejs-testing#readme",
   "dependencies": {
     "@plumejs/core": "^4.0.1",
-    "@testing-library/dom": "^9.3.1"
+    "@testing-library/dom": "^9.3.1",
+    "jsdom": "^22.1.0",
+    "shadow-dom-testing-library": "^1.11.0"
   },
   "devDependencies": {
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "rimraf": "^5.0.1"
   }
 }
