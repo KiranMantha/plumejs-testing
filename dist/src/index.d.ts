@@ -1,4 +1,4 @@
-declare type ConstructorType<T extends {
+type ConstructorType<T extends {
     new (...args: any[]): T;
 }> = T;
 export interface Fixture<T> {
