@@ -20,7 +20,7 @@ export class TestBed {
         for (const { provider, useValue } of mockDependencies) {
             TestBed.MockService(provider, useValue);
         }
-        const appRoot = await _waitForComponentToRender(target.prototype.selector);
+        const appRoot = await _waitForComponentToRender(target.__selector__);
         return { componentInstance: appRoot.getInstance(), element: appRoot.shadowRoot };
     }
     static MockService(klass, mockedInstance) {
