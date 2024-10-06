@@ -10,7 +10,7 @@ export declare class TestBed {
         provider: ConstructorType<any>;
         useValue: any;
     }>): Promise<Fixture<T>>;
-    static MockService(klass: ConstructorType<any>, mockedInstance: any): any;
+    static MockService(klass: ConstructorType<any>, mockedInstance: any): import("@plumejs/core/dist/src/types").MetadataConstructor<any>;
     static RemoveComponent<T>(fixture: Fixture<T>): void;
 }
 export declare function flushMicroTasks(): () => Promise<void>;

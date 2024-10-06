@@ -1,4 +1,4 @@
-import { Injector, InjectionToken } from '@plumejs/core';
+import { Injector } from '@plumejs/core';
 
 type ConstructorType<T extends { new (...args: any[]): T }> = T;
 
@@ -37,7 +37,8 @@ export class TestBed {
 
   static MockService(klass: ConstructorType<any>, mockedInstance: any) {
     Injector.removeService(klass);
-    return InjectionToken(klass, mockedInstance);
+    Injector.register(klass, mockedInstance);
+    return Injector.getService(klass);
   }
 
   static RemoveComponent<T>(fixture: Fixture<T>) {

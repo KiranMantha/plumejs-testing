@@ -1,4 +1,4 @@
-import { Injector, InjectionToken } from '@plumejs/core';
+import { Injector } from '@plumejs/core';
 async function _waitForComponentToRender(tag) {
     const ele = document.createElement(tag);
     document.body.appendChild(ele);
@@ -25,7 +25,8 @@ export class TestBed {
     }
     static MockService(klass, mockedInstance) {
         Injector.removeService(klass);
-        return InjectionToken(klass, mockedInstance);
+        Injector.register(klass, mockedInstance);
+        return Injector.getService(klass);
     }
     static RemoveComponent(fixture) {
         document.body.removeChild(fixture.element.host);
